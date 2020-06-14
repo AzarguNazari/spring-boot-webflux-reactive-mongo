@@ -1,24 +1,25 @@
 package com.example.model;
 
+import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
-
 @Document
+@Data
 public class Post {
 
     @Id
     private String id;
 
-    @NotNull
+    @NonNull
     private String title;
 
-    @NotNull
+    @NonNull
     private String text;
 
-    @NotNull
+    @NonNull
     private String category;
 
     @Version
@@ -29,45 +30,5 @@ public class Post {
         this.text = entity.getText();
         this.category = entity.getCategory();
         return this;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 }
